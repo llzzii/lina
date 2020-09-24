@@ -79,7 +79,7 @@ export default {
             prop: 'id',
             formatterArgs: {
               onUpdate: function({ row, col }) {
-                this.$router.push({ name: 'ReplayStorageUpdate', params: { id: row.id }, query: { type: row.type }})
+                this.$router.push({ name: 'ReplayStorageUpdate', params: { id: row.id }})
               },
               canUpdate: function(row, cellValue) {
                 return (row.name !== 'default' && row.name !== 'null')
