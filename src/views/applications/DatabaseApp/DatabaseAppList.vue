@@ -19,7 +19,7 @@ export default {
         columnsMeta: {
           get_type_display: {
             label: this.$t('applications.type'),
-            width: '80px'
+            width: '120px'
           },
           host: {
             width: '140px'
@@ -45,6 +45,27 @@ export default {
             type: 'primary',
             can: true,
             callback: this.createMysql.bind(this)
+          },
+          {
+            name: 'PostgreSQL',
+            title: 'PostgreSQL',
+            type: 'primary',
+            can: true,
+            callback: this.createPostgreSQL.bind(this)
+          },
+          {
+            name: 'MariaDB',
+            title: 'MariaDB',
+            type: 'primary',
+            can: true,
+            callback: this.createMariaDB.bind(this)
+          },
+          {
+            name: 'Oracle',
+            title: 'Oracle',
+            type: 'primary',
+            can: true,
+            callback: this.createOracle.bind(this)
           }
         ]
       }
@@ -53,6 +74,15 @@ export default {
   methods: {
     createMysql() {
       this.$router.push({ name: 'DatabaseAppCreate', query: { type: 'mysql' }})
+    },
+    createPostgreSQL() {
+      this.$router.push({ name: 'DatabaseAppCreate', query: { type: 'postgresql' }})
+    },
+    createMariaDB() {
+      this.$router.push({ name: 'DatabaseAppCreate', query: { type: 'mariadb' }})
+    },
+    createOracle() {
+      this.$router.push({ name: 'DatabaseAppCreate', query: { type: 'oracle' }})
     }
   }
 }

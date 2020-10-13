@@ -67,8 +67,55 @@ export default {
         }
       },
       headerActions: {
-        hasBulkDelete: false
+        hasBulkDelete: false,
+        hasCreate: false,
+        moreActionsTitle: this.$t('common.Create'),
+        moreActionsType: 'primary',
+        extraMoreActions: [
+          {
+            name: 'MySQL',
+            title: 'MySQL',
+            type: 'primary',
+            can: true,
+            callback: this.createMysqlOps.bind(this)
+          },
+          {
+            name: 'PostgreSQL',
+            title: 'PostgreSQL',
+            type: 'primary',
+            can: true,
+            callback: this.createPostgreSQLOps.bind(this)
+          },
+          {
+            name: 'MariaDB',
+            title: 'MariaDB',
+            type: 'primary',
+            can: true,
+            callback: this.createMariaDBOps.bind(this)
+          },
+          {
+            name: 'Oracle',
+            title: 'Oracle',
+            type: 'primary',
+            can: true,
+            callback: this.createOracleOps.bind(this)
+          }
+        ]
       }
+    }
+  },
+  methods: {
+    createMysqlOps() {
+      this.$router.push({ name: 'DatabaseAppPermissionCreate', query: { type: 'mysql' }})
+    },
+    createPostgreSQLOps() {
+      this.$router.push({ name: 'DatabaseAppPermissionCreate', query: { type: 'postgresql' }})
+    },
+    createMariaDBOps() {
+      this.$router.push({ name: 'DatabaseAppPermissionCreate', query: { type: 'mariadb' }})
+    },
+    createOracleOps() {
+      this.$router.push({ name: 'DatabaseAppPermissionCreate', query: { type: 'oracle' }})
     }
   }
 }

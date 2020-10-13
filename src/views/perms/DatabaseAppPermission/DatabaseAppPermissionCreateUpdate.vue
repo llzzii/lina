@@ -45,14 +45,14 @@ export default {
         database_apps: {
           el: {
             value: [],
-            url: '/api/v1/applications/database-apps/'
+            url: this.$route.query.type ? `/api/v1/applications/database-apps/?protocol=${this.$route.query.type}` : `/api/v1/applications/database-apps/`
           }
         },
         system_users: {
           el: {
             value: [],
             ajax: {
-              url: '/api/v1/assets/system-users/?protocol=mysql'
+              url: this.$route.query.type ? `/api/v1/assets/system-users/?protocol=${this.$route.query.type}` : `/api/v1/assets/system-users/?protocol=mysql`
             }
           }
         },
