@@ -45,7 +45,7 @@ export default {
         database_apps: {
           el: {
             value: [],
-            url: this.$route.query.type ? `/api/v1/applications/database-apps/?protocol=${this.$route.query.type}` : `/api/v1/applications/database-apps/`
+            url: this.$route.query.type ? `/api/v1/applications/database-apps/?type=${this.$route.query.type}` : `/api/v1/applications/database-apps/?type=mysql`
           }
         },
         system_users: {
